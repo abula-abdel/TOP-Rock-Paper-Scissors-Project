@@ -18,5 +18,19 @@ Step 3: Declare the players score variable - Done
 1. Create two global variables, one called humanScore and another called computerScore
 2. Initialize those variables to 0
 
-Step 5: Write logic to play a single round - In Progress
-1. Create a function called 
+Step 5: Write logic to play a single round - Done
+1. Create a function called playRound - this should take input from human and computer choice
+2. Input will be using ignorecase or will make everything lower case 
+3. Hard code using if else statements. Statements will include 4 conditions
+    - if player = rock and computer = scissors
+    - if player = scissors and computer = paper
+    - if player = paper and computer = rock
+    - if player and computer are equal
+    - everything else is a loss for the player
+4. Return string statement with outcome, either stating win or lose
+5. increment global variable by 1, either for the player or for the computer depending on who win the match
+
+Step 6: Write the logic to play the entire game - In Progress
+1. Create a function called playGame. It takes no parameters when called
+2. Implements a for loop going up to 5 times. Each time calling the playRound function to play a new round and increment the score
+3. A comparison of the global variables will be done after the loop is run

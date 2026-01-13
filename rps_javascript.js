@@ -1,7 +1,8 @@
 let humanScore = 0;
-let comptuerScore = 0;
+let computerScore = 0;
 
-function getComptuerChoice(){
+//
+function getComputerChoice(){
     let rps = ["rock", "paper", "scissors"];
     let rand = Math.floor(Math.random() * rps.length);
     return rps[rand];
@@ -29,14 +30,36 @@ function playRound(a, b){
         return "Tie! " + upA + " ties " + upB + "!" ;
 
     }else{
-        comptuerScore = comptuerScore + 1;
+        computerScore = computerScore + 1;
         return "You Lost! "  + upB + " beats " + upA + "!";
     }
 
 }
 
-    const playChoice = getHumanChoice();
-    const compChoice = getComptuerChoice();
+function playGame(){
+    for(let step = 0; step < 5; step++){
+        
+        let playChoice = getHumanChoice();
+        let compChoice = getComputerChoice();
+        
+        console.log("Computer: " + compChoice)
+        console.log("You: " + playChoice)
 
-    console.log(compChoice);
-    console.log(playRound(playChoice, compChoice));
+
+        let out = playRound(playChoice, compChoice);
+
+        
+        console.log(out);
+        console.log("Your Score: " + humanScore + " | " + "Computer Score: " + computerScore);
+    }
+
+    if (humanScore > computerScore){
+        return console.log("You won!")
+    }else if (humanScore < computerScore){
+        return console.log("You lost!")
+    }else{
+        return(console.log("It was a tie!"))
+    }
+}
+
+playGame();
