@@ -30,7 +30,9 @@ Step 5: Write logic to play a single round - Done
 4. Return string statement with outcome, either stating win or lose
 5. increment global variable by 1, either for the player or for the computer depending on who win the match
 
-Step 6: Write the logic to play the entire game - In Progress
+Step 6: Write the logic to play the entire game - Done
 1. Create a function called playGame. It takes no parameters when called
 2. Implements a for loop going up to 5 times. Each time calling the playRound function to play a new round and increment the score
-3. A comparison of the global variables will be done after the loop is run
+3. A comparison of the global variables will be done after the loop is ran
+4. Loop will display outcome of each round
+4. Comparison will be made after the loop is complete to determine winner
