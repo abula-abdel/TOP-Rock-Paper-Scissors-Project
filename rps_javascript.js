@@ -1,18 +1,21 @@
+// Global variables to keep track of score
 let humanScore = 0;
 let computerScore = 0;
 
-
+//Function to get computer choice of rock, paper or scissors
 function getComputerChoice(){
     let rps = ["rock", "paper", "scissors"];
     let rand = Math.floor(Math.random() * rps.length);
     return rps[rand];
     }
 
+//Function to get human input of rock, paper or scissors
 function getHumanChoice(){
     let choice = prompt("Please choose rock, paper or scissors");
     return choice;
 }
 
+//Function to play one round of RPS between player and computer. Updates global variable after round is complete
 function playRound(a, b){
     hAns = a.toLowerCase();
     bAns = b.toLowerCase();
@@ -25,7 +28,7 @@ function playRound(a, b){
         humanScore = humanScore + 1;
         return "You Won! " + upA + " beats " + upB + "!";
 
-    } else if(hAns === bAns){
+    }else if(hAns === bAns){
         
         return "Tie! " + upA + " ties " + upB + "!" ;
 
@@ -36,6 +39,7 @@ function playRound(a, b){
 
 }
 
+//Function plays 5 rounds of the game and outputs the results after each game. Winner displayed at the end by comparison
 function playGame(){
     for(let step = 0; step < 5; step++){
         
@@ -55,11 +59,14 @@ function playGame(){
 
     if (humanScore > computerScore){
         return console.log("You won!")
+
     }else if (humanScore < computerScore){
         return console.log("You lost!")
-    }else{
+
+    }else {
         return(console.log("It was a tie!"))
     }
 }
 
+//Call to function
 playGame();
