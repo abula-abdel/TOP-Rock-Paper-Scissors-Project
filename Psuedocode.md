@@ -36,3 +36,17 @@ Step 6: Write the logic to play the entire game - Done
 3. A comparison of the global variables will be done after the loop is ran
 4. Loop will display outcome of each round
 4. Comparison will be made after the loop is complete to determine winner
+
+--------------------------------------------------------------------------
+
+Updated RPS: 
+
+1. Removed the logic that plays five rounds
+2. Created three buttons corresponding with the player choice of "Rock" "Paper" or "Scissors"
+3. Removed the logic for player choice. The player only has to click buttons.
+4. Added event listeners for each button. 
+5. Rewrote the playRound function that takes the event as an argument.
+6. Grabbed the event ID that corresponded with the button that was clicked then used the ID as a comparison to determine which button was clicked.
+7. Added a div for display with p elements
+8. Changed console.log to textContext that is added to p element
+9. If either player score or computer score reaches 5, then text is displayed on who the winner is. Buttons get disabled, so game is no longer active.

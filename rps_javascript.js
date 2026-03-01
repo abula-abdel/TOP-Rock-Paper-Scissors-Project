@@ -2,71 +2,81 @@
 let humanScore = 0;
 let computerScore = 0;
 
-//Function to get computer choice of rock, paper or scissors
+const r_button = document.getElementById("rock");
+const p_button = document.getElementById("paper");
+const s_button = document.getElementById("scissors");
+
+const p_score = document.getElementById("p_score");
+const c_score = document.getElementById("c_score");
+
+const winner = document.getElementById("winner");
+const results = document.getElementById("results");
+
+// Function to get computer choice of rock, paper or scissors
 function getComputerChoice(){
     let rps = ["rock", "paper", "scissors"];
     let rand = Math.floor(Math.random() * rps.length);
     return rps[rand];
     }
 
-//Function to get human input of rock, paper or scissors
-function getHumanChoice(){
-    let choice = prompt("Please choose rock, paper or scissors");
-    return choice;
-}
 
-//Function to play one round of RPS between player and computer. Updates global variable after round is complete
-function playRound(a, b){
+function playRound(event){
+
+    let a = event.target.id;
+    let b = getComputerChoice();
+
     hAns = a.toLowerCase();
     bAns = b.toLowerCase();
 
     upA = a.charAt(0).toUpperCase() + a.substring(1, a.length);
     upB = b.charAt(0).toUpperCase() + b.substring(1, b.length);
 
+
+
     if ((hAns === "rock" &&  bAns === "scissors") || (hAns === "scissors" && bAns === "paper") || (hAns === "paper" && bAns === "rock")){
         
-        humanScore = humanScore + 1;
-        return "You Won! " + upA + " beats " + upB + "!";
+        humanScore++;
+        p_score.textContent = "Player Score: " + humanScore;
+        results.textContent = "You Won! " + upA + " beats " + upB + "!";
+        
 
     }else if(hAns === bAns){
         
-        return "Tie! " + upA + " ties " + upB + "!" ;
+        results.textContent = "Tie! " + upA + " ties " + upB + "!";
 
     }else{
-        computerScore = computerScore + 1;
-        return "You Lost! "  + upB + " beats " + upA + "!";
+
+        computerScore++;
+        c_score.textContent = "Computer Score: " + computerScore;
+        results.textContent = "You Lost! "  + upB + " beats " + upA + "!";
+    }
+
+
+    if(humanScore == 5){
+
+        winner.textContent = "The Player reached five points first! The Player Wins the Game!!";
+        p_score.textContent = "Player Score: " + humanScore;
+        c_score.textContent = "Computer Score: " + computerScore;
+
+        r_button.removeEventListener("click", playRound);
+        p_button.removeEventListener("click", playRound);
+        s_button.removeEventListener("click", playRound);
+        
+    }
+
+    else if(computerScore == 5){
+
+        winner.textContent = "The Computer reached 5 points first! The Computer wins the Game!!";
+        p_score.textContent = "Player Score: " + humanScore;;
+        c_score.textContent = "Computer Score: " + computerScore;
+
+        r_button.removeEventListener("click", playRound);
+        p_button.removeEventListener("click", playRound);
+        s_button.removeEventListener("click", playRound);
     }
 
 }
 
-//Function plays 5 rounds of the game and outputs the results after each game. Winner displayed at the end by comparison
-function playGame(){
-    for(let step = 0; step < 5; step++){
-        
-        let playChoice = getHumanChoice();
-        let compChoice = getComputerChoice();
-        
-        console.log("Computer: " + compChoice)
-        console.log("You: " + playChoice)
-
-
-        let out = playRound(playChoice, compChoice);
-
-        
-        console.log(out);
-        console.log("Your Score: " + humanScore + " | " + "Computer Score: " + computerScore);
-    }
-
-    if (humanScore > computerScore){
-        return console.log("You won!")
-
-    }else if (humanScore < computerScore){
-        return console.log("You lost!")
-
-    }else {
-        return(console.log("It was a tie!"))
-    }
-}
-
-//Call to function
-playGame();
+r_button.addEventListener("click", playRound);
+p_button.addEventListener("click", playRound);
+s_button.addEventListener("click", playRound);
