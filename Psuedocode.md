@@ -49,4 +49,4 @@ Updated RPS:
 6. Grabbed the event ID that corresponded with the button that was clicked then used the ID as a comparison to determine which button was clicked.
 7. Added a div for display with p elements
 8. Changed console.log to textContext that is added to p element
-9. If either player score or computer score reaches 5, then text is displayed on who the winner is. Buttons get disabled, so game is no longer active.
+9. If either player score or computer score reaches 5, then text is displayed on who the winner is. Buttons get disabled, so game is no longer active
